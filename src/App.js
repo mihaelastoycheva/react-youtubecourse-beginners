@@ -3,12 +3,14 @@ import Content from './Content';
 import AddItem from './AddItem';
 import Footer from './Footer';
 import SecContent from './SecContent';
+import SearchItem from './SearchItem';
 import { useState } from 'react';
 
 function App() {
   const [items, setItems] = useState(JSON.parse(localStorage.getItem('shoppingList')));
 
   const [newItem, setNewItem] = useState('')
+  const [search, setSearch] = useState('')
 
   const setAndSaveItems = (newItems) => {
     setItems(newItems);
@@ -43,14 +45,18 @@ function App() {
   return (
     <div className="App">
       <Header title="Grocery list" />
-      <Content />
+      {/* <Content /> */}
       <AddItem
         newItem={newItem}
         setNewItem={setNewItem}
         handleSubmit={handleSubmit}
       />
+      <SearchItem
+        search={search}
+        setSearch={setSearch}
+      />
       <SecContent
-        items={items}
+        items={items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))}
         handleCheck={handleCheck}
         handleDelete={handleDelete}
       />
