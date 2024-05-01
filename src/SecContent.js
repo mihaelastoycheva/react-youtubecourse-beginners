@@ -1,40 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FaTrashAlt } from 'react-icons/fa';
 
-const SecContent = () => {
-    const [items, setItems] = useState([
-        {
-            id: 1,
-            checked: true,
-            item: "Thats first item"
-        },
-        {
-            id: 2,
-            checked: false,
-            item: "Thats second item"
-        },
-        {
-            id: 3,
-            checked: false,
-            item: "Thats third item"
-        }
-
-    ])
-
-    const handleCheck = (id) => {
-        const listItems = items.map((item) => item.id === id ? {...item,
-            checked: !item.checked
-        } : item);
-        setItems(listItems);
-        localStorage.setItem('shoppingList', JSON.stringify(listItems));
-    }
-
-    const handleDelete = (id) => {
-        const listItems = items.filter((item) => item.id !== id);
-        setItems(listItems);
-        localStorage.setItem('shoppingList', JSON.stringify(listItems));
-    }
-
+const SecContent = ({items, handleCheck, handleDelete}) => {
     return (
         <main>
             {items.length ? (
@@ -60,7 +27,7 @@ const SecContent = () => {
                     ))}
                 </ul>
             ) : (
-                <p style={{marginTop:'2rem'}}>Your list is empty.</p>
+                <p style={{ marginTop: '2rem' }}>Your list is empty.</p>
             )}
         </main>
     )
