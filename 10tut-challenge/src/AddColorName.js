@@ -1,6 +1,7 @@
 import React from 'react'
+import colorNames from 'colornames';
 
-const AddColorName = ({ colorValue, setColorValue }) => {
+const AddColorName = ({ colorValue, setColorValue, setHexValue }) => {
     return (
         <form
             className='addColorName'
@@ -12,7 +13,10 @@ const AddColorName = ({ colorValue, setColorValue }) => {
                 placeholder='Add color name'
                 required
                 value={colorValue}
-                onChange={(e) => setColorValue(e.target.value)}
+                onChange={(e) => {
+                    setColorValue(e.target.value);
+                    setHexValue(colorNames(e.target.value));
+                }}
             />
         </form>
     )
