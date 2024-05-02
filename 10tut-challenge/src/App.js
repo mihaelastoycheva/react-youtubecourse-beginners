@@ -13,11 +13,14 @@ function App() {
       <ColorSquare
         colorValue={colorValue}
         hexValue={hexValue}
+        isDarkText={isDarkText}
       />
       <AddColorName
         colorValue={colorValue}
         setColorValue={setColorValue}
         setHexValue={setHexValue}
+        isDarkText={isDarkText}
+        setIsDarkText={setIsDarkText}
       />
     </div>
   );
