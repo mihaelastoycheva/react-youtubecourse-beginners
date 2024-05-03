@@ -1,16 +1,24 @@
 import Header from './Header';
 import Content from './Content';
 import AddItem from './AddItem';
-import Footer from './Footer';
-import SecContent from './SecContent';
 import SearchItem from './SearchItem';
-import { useState } from 'react';
+import SecContent from './SecContent';
+import Footer from './Footer';
+import { useState, useEffect } from 'react';
 
 function App() {
   const [items, setItems] = useState(JSON.parse(localStorage.getItem('shoppingList')));
 
   const [newItem, setNewItem] = useState('')
   const [search, setSearch] = useState('')
+
+  console.log('before useEffect')
+
+  useEffect(() => {
+    console.log('inside useEffect')
+  }, [items])
+
+  console.log('after useEffect')
 
   const setAndSaveItems = (newItems) => {
     setItems(newItems);
