@@ -30,9 +30,13 @@ function App() {
       }
     }
 
-    fetchItems()
-    //or
-    //(async () => await fetchItems())();
+    setTimeout(() => {
+      fetchItems();
+      //or
+      //(async () => await fetchItems())();
+    }, 2000) //2 seconds wait and then display (fetch)
+
+
   }, [])
 
 
