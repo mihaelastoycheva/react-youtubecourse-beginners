@@ -13,6 +13,7 @@ function App() {
   const [newItem, setNewItem] = useState('');
   const [search, setSearch] = useState('');
   const [fetchError, setFetchError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
 
   useEffect(() => {
@@ -22,11 +23,12 @@ function App() {
         const response = await fetch(API_URL);
         if (!response.ok) throw Error('Did not receive extected data');
         const listItems = await response.json();
-        console.log(listItems);
         setItems(listItems);
         setFetchError(null);
       } catch (err) {
         setFetchError(err.message)
+      } finally {
+        setIsLoading(false);
       }
     }
 
@@ -79,10 +81,11 @@ function App() {
         setSearch={setSearch}
       />
       <main>
+        {isLoading && <p>Loading items...</p>}
         {fetchError && <p style={{ color: "red" }}>
           {`Error: ${fetchError}`}
         </p>}
-        {!fetchError && <SecContent
+        {!fetchError && !isLoading && <SecContent
           items={items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))}
           handleCheck={handleCheck}
           handleDelete={handleDelete}
