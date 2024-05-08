@@ -1,24 +1,34 @@
 {
-    "items": [
-        {
-            "id": 1,
-            "checked": false,
-            "item": "Almonds unsalted"
-        },
-        {
-            "id": 2,
-            "checked": false,
-            "item": "Pizza"
-        },
-        {
-            "id": 3,
-            "checked": false,
-            "item": "Bread"
-        },
-        {
-            "id": 4,
-            "checked": false,
-            "item": "Soda"
-        }
-    ]
+  "items": [
+    {
+      "id": "1",
+      "checked": false,
+      "item": "Almonds unsalted"
+    },
+    {
+      "id": "2",
+      "checked": false,
+      "item": "Pizza"
+    },
+    {
+      "id": "3",
+      "checked": false,
+      "item": "Bread"
+    },
+    {
+      "id": "4",
+      "checked": false,
+      "item": "Soda"
+    },
+    {
+      "id": "41",
+      "checked": false,
+      "item": "Almonds"
+    },
+    {
+      "id": "41",
+      "checked": false,
+      "item": "Almonds"
+    }
+  ]
 }
